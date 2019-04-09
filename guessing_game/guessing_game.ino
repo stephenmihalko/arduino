@@ -46,6 +46,18 @@ void loop()
     userNum -= 10;
   else if (abs(button_val-SELECT) < 10)
   {
+    lcd.setCursor(0, 0);
+    lcd.print("                ");
+    lcd.setCursor(0, 1);
+    lcd.print("                ");
+    lcd.setCursor(0, 0);
+    if (userNum == compNum)
+      lcd.print("You guessed it!");
+    else if (userNum < compNum)
+      lcd.print("Too low");
+    else
+      lcd.print("Too high");
+    delay(1000);
     
   }
 
