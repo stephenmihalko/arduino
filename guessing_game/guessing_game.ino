@@ -36,15 +36,15 @@ void loop()
   lcd.print(userNum);
 
   button_val = analogRead(0);
-  if (button_val == RIGHT)
+  if (abs(button_val-RIGHT) < 10)
     userNum += 10;
-  else if (button_val == UP)
+  else if (abs(button_val-UP) < 10)
     userNum++;
-  else if (button_val == DOWN)
+  else if (abs(button_val-DOWN) < 10)
     userNum--;
-  else if (button_val == LEFT)
+  else if (abs(button_val-LEFT) < 10)
     userNum -= 10;
-  else if (button_val == SELECT)
+  else if (abs(button_val-SELECT) < 10)
   {
     
   }
