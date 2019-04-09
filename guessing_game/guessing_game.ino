@@ -30,6 +30,8 @@ void loop()
   lcd.setCursor(0, 0);
   lcd.print("Guess a number");
   lcd.setCursor(0, 1);
+  lcd.print("          ");
+  lcd.setCursor(0, 1);
   lcd.print("1-100: ");
   lcd.print(userNum);
 
@@ -38,6 +40,14 @@ void loop()
     userNum += 10;
   else if (button_val == UP)
     userNum++;
+  else if (button_val == DOWN)
+    userNum--;
+  else if (button_val == LEFT)
+    userNum -= 10;
+  else if (button_val == SELECT)
+  {
+    
+  }
 
     delay(200);
   
