@@ -22,6 +22,7 @@ uint8_t compNum, userNum = 1;
 void setup()
 {
   lcd.begin(16, 2);
+  randomSeed(analogRead(3));
   compNum = random(1, 101);
 }
 
@@ -57,7 +58,7 @@ void loop()
       lcd.print("Too low");
     else
       lcd.print("Too high");
-    delay(1000);
+    delay(1500);
     
   }
 
