@@ -21,7 +21,9 @@ void loop()
 {
   for (size_t i = 0; i < 10; ++i)
   {
+    // Clear all LEDs
     PORTD &= 0x00;
+    // Send number to seven-segment display
     PORTD |= masks[i];
     delay(250);
   }
