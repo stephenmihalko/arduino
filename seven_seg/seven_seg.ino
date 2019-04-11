@@ -1,4 +1,6 @@
-/*
+/* Scrolls through hexadecimal digits on a
+ * seven-segment LED display.
+ *
  * Pin mappings:
  * a (T):  1
  * b (TR): 2
