@@ -1,3 +1,17 @@
+/*
+ * Plays simple number guessing game with user.
+ *  - Computer generates random number.
+ *  - User chooses number with UP, DOWN, LEFT, RIGHT buttons
+ *    and enters value with SELECT button.
+ *	  - UP increases user's number by 1
+ *	  - DOWN decreases user's number by 1
+ *	  - RIGHT increases user's number by 10
+ *	  - LEFT decreases the user's number by 10
+ *  - Program responds with "Too low", "Too high" or
+ *	  "You guessed it!"
+ *  Reset Arduino to begin new game
+ */
+
 #include <LiquidCrystal.h>
 
 // Analog read values for each button
@@ -22,6 +36,7 @@ uint8_t compNum, userNum = 1;
 void setup()
 {
   lcd.begin(16, 2);
+  // Seed PRNG with input from unconnected pin
   randomSeed(analogRead(3));
   compNum = random(1, 101);
 }
@@ -47,11 +62,13 @@ void loop()
     userNum -= 10;
   else if (abs(button_val-SELECT) < 10)
   {
+	// Clear screen
     lcd.setCursor(0, 0);
     lcd.print("                ");
     lcd.setCursor(0, 1);
     lcd.print("                ");
     lcd.setCursor(0, 0);
+	
     if (userNum == compNum)
       lcd.print("You guessed it!");
     else if (userNum < compNum)
@@ -61,7 +78,5 @@ void loop()
     delay(1500);
     
   }
-
     delay(200);
-  
 }
