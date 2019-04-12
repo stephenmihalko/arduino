@@ -9,8 +9,9 @@ const uint8_t data = 12,  // the data pin in Arduino
  *       Qk: k
  */
 
-const uint8_t masks[8] = {0x3F, 0x06, 0x5B, 0x4F,
-                          0x66, 0x6D, 0x7D, 0x07};
+const uint8_t masks[12] = {0x3F, 0x06, 0x5B, 0x4F,
+                           0x66, 0x6D, 0x7D, 0x07,
+                           0x7F, 0x6F, 0x77, 0x7C};
 
 void setup()
 {
@@ -20,9 +21,9 @@ void setup()
 
 void loop()
 {
-  for (size_t i = 0; i < 8; ++i)
+  for (size_t i = 0; i < 12; ++i)
   {
     shiftOut(data, clk, MSBFIRST, masks[i]);
-    delay(1000);
+    delay(500);
   }
 }
